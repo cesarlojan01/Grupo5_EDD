@@ -15,4 +15,4 @@ const memoriaFinal = getMemoryUsage()
 console.log(`[Enfoque Primitivos] - Memoria Inicial: ${memoriaInicial} MB`)
 console.log(`[Enfoque Primitivos] - Memoria Final: ${memoriaFinal} MB`)
 console.log(`[Enfoque Primitivos] - Consumo Neto: ${memoriaFinal - memoriaInicial} MB`)
-console.log('arrayBuffers (MB):', (process.memoryUsage().arrayBuffers / 1048576).toFixed(2));
+
