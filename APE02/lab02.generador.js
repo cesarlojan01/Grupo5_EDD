@@ -2,7 +2,7 @@ const fs = require("fs")
 const {performance} = require("perf_hooks")
 
 const FILE_NAME = "coordenadas_masivas.csv"
-const N = 1000000
+const N = 100000
 
 console.log(`[Generador] Iniciando escritura de ${N} registros...`)
 const start = performance.now()
