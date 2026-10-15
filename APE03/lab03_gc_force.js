@@ -1,0 +1,30 @@
+const {performance} = require('perf_hooks')
+
+const historialSatelitalGlobal = []
+
+console.log("[Auditoria] Iniciando simulacion de Memory Leak....")
+
+function procesarCoordenada(){
+    const paquete = {
+        timestamp: Date.now(),
+        lat: Math.random() * 90,
+        lng: Math.random() * 180,
+        payload: new Array(100000).fill('datos_topograficos_basura')
+
+    }
+    historialSatelitalGlobal.push(paquete)
+}
+
+for(let i=1;i<=500;i++){
+    
+    if(i%100 === 0){
+        if(global.gc){
+            global.gc()
+        }
+        const memoryUsed = Math.round(process.memoryUsage().heapUsed / 1024 / 1024)
+        console.log(`Iteracion ${i} | RAM post-GC: ${memoryUsage} MB`)
+    }
+
+}
+
+console.log(`[Auditoria] Finalizado. El arreglo tiene ${historialSatelitalGlobal.length} registros en el heap`)
