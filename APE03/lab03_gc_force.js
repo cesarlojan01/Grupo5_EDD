@@ -22,7 +22,7 @@ for(let i=1;i<=500;i++){
             global.gc()
         }
         const memoryUsed = Math.round(process.memoryUsage().heapUsed / 1024 / 1024)
-        console.log(`Iteracion ${i} | RAM post-GC: ${memoryUsage} MB`)
+        console.log(`Iteracion ${i} | RAM post-GC: ${memoryUsed} MB`)
     }
 
 }
