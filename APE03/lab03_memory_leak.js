@@ -16,6 +16,7 @@ function procesarCoordenada(){
 }
 
 for(let i=1;i<=500;i++){
+    procesarCoordenada()
     if(i%100 === 0){
         const memoryUsed = Math.round(process.memoryUsage().heapUsed / 1024 / 1024)
         console.log(`Iteracion ${i} | RAM consumida: ${memoryUsed} MB`)

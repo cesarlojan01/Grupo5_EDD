@@ -16,7 +16,7 @@ function procesarCoordenada(){
 }
 
 for(let i=1;i<=500;i++){
-    
+    procesarCoordenada()
     if(i%100 === 0){
         if(global.gc){
             global.gc()
