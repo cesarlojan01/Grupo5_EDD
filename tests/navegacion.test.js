@@ -11,6 +11,24 @@ describe('Pruebas Unitarias - Navegación Bidireccional (Avance 4 ABP)', () => {
     lista.insertar({ id: 102, accion: 'Filtrar Datos B' });
     lista.insertar({ id: 103, accion: 'Exportar Reporte C' });
   });
+  test('1. Inicialización: El cursor debe situarse en el primer nodo insertado', () => {
+    assert.equal(lista.obtenerActual().id, 101);
+    assert.equal(lista.longitud, 3);
+  });
+
+  test('2. Avance Secuencial: Debe desplazarse hacia adelante correctamente', () => {
+    assert.equal(lista.avanzar().id, 102);
+    assert.equal(lista.avanzar().id, 103);
+    assert.equal(lista.avanzar(), null); // Límite superior alcanzado
+  });
+
+  test('3. Retroceso Secuencial: Debe navegar hacia atrás y mantener la consistencia', () => {
+    lista.avanzar(); // Cursor en 102
+    lista.avanzar(); // Cursor en 103
+    assert.equal(lista.retroceder().id, 102);
+    assert.equal(lista.retroceder().id, 101);
+    assert.equal(lista.retroceder(), null); // Límite inferior alcanzado
+  });
 
   test('4. Eliminación de Nodo Intermedio: Reconexión correcta de punteros anterior y siguiente', () => {
     lista.avanzar(); // Cursor en 102 ('Filtrar Datos B')
